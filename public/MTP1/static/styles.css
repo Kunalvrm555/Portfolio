@@ -1,0 +1,445 @@
+/* =====================================================
+   General Styles
+   ===================================================== */
+
+/* Apply a dark background and set base font styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    /* Dark background for dark theme */
+    color: #e0e0e0;
+    /* Light text for contrast */
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align to top for better readability */
+    min-height: 100vh;
+}
+
+/* Container for the entire notebook */
+.notebook-container {
+    max-width: 960px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* =====================================================
+   Header Styles
+   ===================================================== */
+
+.notebook-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.notebook-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.metadata {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1em;
+    color: #b0b0b0;
+}
+
+.metadata .meta-author,
+.metadata .meta-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* =====================================================
+   Main Content Styles
+   ===================================================== */
+
+.notebook-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* =====================================================
+   Markdown Cell Styles
+   ===================================================== */
+
+.markdown-cell {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Ensure images within markdown are responsive */
+.markdown-cell img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Style tables within markdown cells */
+.markdown-cell table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.markdown-cell table,
+.markdown-cell th,
+.markdown-cell td {
+    border: 1px solid #333333;
+}
+
+.markdown-cell th,
+.markdown-cell td {
+    padding: 10px;
+    text-align: left;
+}
+
+.markdown-cell th {
+    background-color: #1e1e1e;
+}
+
+.markdown-cell tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+/* =====================================================
+   Code Cell Styles
+   ===================================================== */
+
+.code-cell {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.input-area {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.code-block {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto;
+    width: 100%;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95em;
+    color: #f8f8f2;
+}
+
+/* Collapse Button Styles */
+.collapse-button {
+    background: none;
+    border: none;
+    color: #888888;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 1em;
+}
+
+.collapse-button:focus {
+    outline: none;
+}
+
+/* Collapsed Code Block */
+.collapsed {
+    display: none;
+}
+
+/* =====================================================
+   Output Area Styles
+   ===================================================== */
+
+.output-area {
+    margin-top: 15px;
+    padding-left: 20px;
+    border-left: 3px solid #333333;
+}
+
+.output {
+    margin-bottom: 15px;
+}
+
+.output-text,
+.output-stream {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95em;
+    color: #f8f8f2;
+}
+
+/* Ensure images within outputs are responsive and scrollable */
+.output-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    align-self: center;
+    transition: transform 0.3s ease;
+    /* For hover scaling */
+    cursor: pointer;
+    /* Indicate clickable */
+}
+
+/* Make HTML outputs with tables scrollable */
+.output-html.table-wrapper {
+    overflow-x: auto;
+}
+
+.output-html table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.output-html th,
+.output-html td {
+    padding: 10px;
+    border: 1px solid #333333;
+    text-align: left;
+}
+
+.output-html th {
+    background-color: #1e1e1e;
+}
+
+.output-html tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.output-error {
+    background-color: #ff5555;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95em;
+}
+
+.output-error pre {
+    background-color: #ff6e6e;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+/* =====================================================
+   Footer Styles
+   ===================================================== */
+
+.notebook-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #888888;
+}
+
+/* =====================================================
+   Responsive Design
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .notebook-container {
+        padding: 10px;
+    }
+
+    .notebook-title {
+        font-size: 2em;
+    }
+
+    .metadata {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    .code-block {
+        font-size: 0.9em;
+    }
+}
+
+/* =====================================================
+   Accessibility Enhancements
+   ===================================================== */
+
+button.collapse-button {
+    transition: transform 0.3s ease;
+}
+
+button.collapse-button:hover {
+    color: #ffffff;
+}
+
+/* =====================================================
+   Table of Contents (TOC) Styles
+   ===================================================== */
+
+/* Position the TOC with improved styling */
+.toc {
+    background-color: #1e1e1e;
+    /* Dark background for TOC */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.toc h2 {
+    font-family: 'JetBrains Mono', monospace;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.toc li {
+    margin: 10px 0;
+}
+
+.toc-link {
+    text-decoration: none;
+    color: #4ea8de;
+    /* Improved color theme for links */
+    transition: color 0.3s ease;
+}
+
+.toc-link:hover {
+    color: #81c0ff;
+    /* Lighter shade on hover */
+}
+
+/* Ensure clicked links retain their original color */
+.toc-link:active,
+.toc-link:visited {
+    color: #4ea8de;
+    /* Same as default link color */
+}
+
+/* Responsive TOC for smaller screens */
+@media (max-width: 768px) {
+    .toc {
+        margin-bottom: 20px;
+    }
+
+    .toc-link {
+        font-size: 0.9em;
+    }
+}
+
+/* =====================================================
+   Image Modal Styles
+   ===================================================== */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    padding-top: 60px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.3s ease;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* =====================================================
+   Image Hover Scaling in Code Outputs
+   ===================================================== */
+
+/* Scale image on hover */
+.output-image img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.output-image img:hover {
+    transform: scale(1.1);
+    /* Scale by 10% on hover */
+}
+
+/* Ensure images are responsive within modal */
+.modal-content {
+    width: 100%;
+    height: auto;
+}
+
+/* =====================================================
+   Smooth Scrolling (if TOC is implemented)
+   ===================================================== */
+
+html {
+    scroll-behavior: smooth;
+}

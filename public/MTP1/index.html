@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizing NOx Conversion Using Machine Learning</title>
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="static/index.css">
+</head>
+<body>
+    <div class="notebook-container">
+        <!-- Header Section -->
+        <header class="notebook-header">
+            <h1 class="notebook-title">Optimizing NOx Conversion Using Machine Learning</h1>
+            <div class="metadata">
+                <a href="https://kunalvrm555.tech" class="link-button meta-author" target="_blank"><i class="fas fa-user"></i> Kunal Verma</a>
+                <a href="#" class="link-button meta-rollno"><i class="fas fa-id-badge"></i> Roll No: 20CH30014</a>
+                <a href="https://scholar.google.co.in/citations?user=67eqo7YAAAAJ&hl=en" class="link-button meta-supervisor" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Prof. Suverna Trivedi</a>
+                <a href="#" class="link-button meta-department"><i class="fas fa-university"></i> Department of Chemical Engineering, IIT Kharagpur</a>
+                <a href="#" class="link-button meta-date"><i class="fas fa-calendar-alt"></i> November 2024</a>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="notebook-content">
+            <!-- Objective Section -->
+            <section class="markdown-cell">
+                <h2>Objective</h2>
+                <p>
+                    Conducting laboratory experiments to investigate NOx reactions can be both costly and time-consuming. This is particularly true when determining the optimal concentrations of nitric oxide (NO) and hydrocarbons (HC) to maximize NOx conversion using specific catalysts. To overcome these challenges, this project leverages advanced machine learning techniques to predict the ideal concentrations of NO and HC, along with the optimal reaction temperature. By utilizing predictive modeling, the objective is to achieve higher NOx conversion rates while significantly reducing the reliance on extensive physical testing. This approach aims to save valuable resources, expedite the research process, and facilitate the discovery of more efficient catalytic systems.
+                </p>
+                <hr>
+            </section>
+
+
+            <!-- Data Collection and Structure Section -->
+            <section class="markdown-cell">
+                <h2>Data Collection and Structure</h2>
+                <p>
+                    Data points were meticulously gathered from various research publications. Each data point corresponds to a single catalyst, detailing its properties and experimental outcomes, including NOx conversion rates and temperatures at specific NO and HC concentrations.
+                </p>
+
+                <!-- Dataset Columns Table -->
+                <h3>Dataset Columns</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Catalyst Composition</strong></td>
+                            <td>Main active components and support materials (e.g., Pd, Ce, In).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support Material</strong></td>
+                            <td>Type of support material (e.g., zeolites, metal oxides).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elemental Composition</strong></td>
+                            <td>Key elements in the catalyst, including promoters or additives (e.g., Pd, Ce, Ag, In).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pore Structure</strong></td>
+                            <td>Type of pores (e.g., microporous, mesoporous) and their relevance to catalytic function.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surface Area (m²/g)</strong></td>
+                            <td>Estimated or known surface area; typical range if unavailable.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pore Volume (cm³/g)</strong></td>
+                            <td>Estimated or known pore volume; typical range if unavailable.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acidity</strong></td>
+                            <td>Level of acidity (e.g., high, moderate, low) and its significance for catalytic activity.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optimal Temperature (K)</strong></td>
+                            <td>Temperature range in Kelvin for optimal catalytic performance.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Particle Size (nm)</strong></td>
+                            <td>Typical particle size or estimated range.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Reactants</strong></td>
+                            <td>Main reactants involved in the reaction (e.g., NOx, H₂, CO).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Selectivity (% N₂)</strong></td>
+                            <td>Selectivity towards desired product (e.g., percentage selectivity toward N₂ in NOx reduction).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Temperature Stability (K)</strong></td>
+                            <td>Maximum temperature at which the catalyst remains stable.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deactivation Resistance</strong></td>
+                            <td>Degree of resistance to deactivation (e.g., high, moderate, low).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reaction Environment</strong></td>
+                            <td>Common reaction conditions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support Interaction</strong></td>
+                            <td>Type and strength of interaction between active metal and support material.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Electron Transfer Properties</strong></td>
+                            <td>Ability of catalyst to facilitate electron transfer (high, moderate, low).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Morphology</strong></td>
+                            <td>Surface and bulk structure (e.g., crystalline, amorphous).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Atomic Radius (pm)</strong></td>
+                            <td>Size of the primary metal atoms, affecting surface interactions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Electronegativity</strong></td>
+                            <td>Electronegativity values of primary and secondary metals.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oxidation State</strong></td>
+                            <td>Primary oxidation states of the metals in the catalyst.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support Type</strong></td>
+                            <td>Support material type (e.g., zeolites like SSZ-13, ZSM-5; oxides like Al₂O₃, TiO₂).</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </section>
+
+            <!-- Resources Section -->
+            <section class="markdown-cell">
+                <h2>Resources</h2>
+                <div class="resource-links">
+                    <!-- Link to Detailed Analysis Page -->
+                    <a href="mtp1_final.html" class="btn">
+                        <i class="fas fa-file-alt"></i> View Detailed Analysis
+                    </a>
+
+                    <!-- Download Link for Jupyter Notebook -->
+                    <a href="mtp1_final.ipynb" class="btn download-btn" download>
+                        <i class="fas fa-download"></i> Download Notebook
+                    </a>
+
+                    <!-- Link to Project Report PDF -->
+                    <a href="report.pdf" class="btn download-btn" download>
+                        <i class="fas fa-file-pdf"></i> Download Project Report
+                    </a>
+                    <!-- Link to Colab Notebook -->
+                    <a href="https://colab.research.google.com/drive/1e6ZcidkqgJsAePBs396qqcq1YJY_Hx3P?usp=sharing" class="btn">
+                        <i class="fab fa-google-drive"></i> Open in Colab
+                    </a>
+
+                </div>
+                </br>
+                <hr>
+            </section>
+
+
+            <!-- Contact Information Section -->
+            <section class="markdown-cell">
+                <h2>Contact</h2>
+                <p>
+                    For inquiries regarding the dataset or any other information, please reach out to me at:
+                </p>
+                <ul>
+                    <li><a href="mailto:kunalvrm555@gmail.com">kunalvrm555@gmail.com</a></li>
+                    <li><a href="mailto:kunalvrm.iitkgp@gmail.com">kunalvrm.iitkgp@gmail.com</a></li>
+                </ul>
+                <hr>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="notebook-footer">
+            <p>&copy; 2024 Kunal Verma. All rights reserved.</p>
+            <p>
+                This project is part of my M.Tech thesis under the supervision of Prof. Suverna Trivedi, Associate Professor, Department of Chemical Engineering at IIT Kharagpur. I am a final-year student at IIT Kharagpur, and this project fulfills part of my integrated dual degree requirements.
+            </p>
+            <p>
+                Special thanks to Prof. Suverna Trivedi for her invaluable guidance and support throughout this project.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

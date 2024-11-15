@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.notebook-container {
+    max-width: 960px;
+    width: 100%;
+    padding: 20px;
+}
+
+.notebook-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.notebook-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.metadata {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1em;
+    color: #b0b0b0;
+    flex-wrap: wrap;
+}
+
+.metadata .meta-author,
+.metadata .meta-rollno,
+.metadata .meta-supervisor,
+.metadata .meta-department,
+.metadata .meta-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.notebook-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.link-button {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-button:hover {
+    background-color: #4ea8de;
+    color: #ffffff;
+}
+
+.markdown-cell {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.markdown-cell h2,
+.markdown-cell h3 {
+    color: #ffffff;
+}
+
+.markdown-cell p {
+    margin-bottom: 1em;
+}
+
+.markdown-cell ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.markdown-cell a {
+    color: #4ea8de;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.markdown-cell a:hover {
+    color: #81c0ff;
+}
+
+.markdown-cell img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.markdown-cell table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.markdown-cell table,
+.markdown-cell th,
+.markdown-cell td {
+    border: 1px solid #333333;
+}
+
+.markdown-cell th,
+.markdown-cell td {
+    padding: 10px;
+    text-align: left;
+}
+
+.markdown-cell th {
+    background-color: #1e1e1e;
+}
+
+.markdown-cell tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.resource-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.link-button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.link-button:hover,
+.btn:hover {
+    background-color: #4ea8de;
+    color: #ffffff;
+}
+
+.download-btn {
+    background-color: #1e1e1e;
+}
+
+.download-btn:hover {
+    background-color: #81c0ff;
+    color: #ffffff;
+}
+
+.notebook-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #888888;
+}
+
+.notebook-footer p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .notebook-container {
+        padding: 10px;
+    }
+
+    .notebook-title {
+        font-size: 2em;
+    }
+
+    .metadata {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .resource-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .markdown-cell table,
+    .markdown-cell th,
+    .markdown-cell td {
+        font-size: 0.9em;
+    }
+}
+
+a:focus,
+.btn:focus {
+    outline: 2px dashed #81c0ff;
+    outline-offset: 4px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
